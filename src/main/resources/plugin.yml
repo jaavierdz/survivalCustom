@@ -1,0 +1,17 @@
+main: srv.javierdz.Survival
+version: 1.0
+name: Survival
+author: Javierdz
+api-version: 1.13
+
+commands:
+  about:
+    description: About the plugin
+    aliases:
+      - survival
+  coords:
+    description: Send your coords to the chat
+    aliases:
+      - sendcoords
+  help:
+    description: There is no help
