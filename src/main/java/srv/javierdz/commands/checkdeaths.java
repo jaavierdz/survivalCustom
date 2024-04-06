@@ -19,8 +19,8 @@ public class checkdeaths implements CommandExecutor {
         Player player = (Player) sender;
 
         Location death = player.getLastDeathLocation();
-        if (lastDeathLocation != null) {
-            player.sendMessage("Your last death location was: " + locationToString(lastDeathLocation));
+        if (death != null) {
+            player.sendMessage("Your last death location was: " + locationToString(death));
         } else {
             player.sendMessage("You haven't died recently or your last death location is not available.");
         }
