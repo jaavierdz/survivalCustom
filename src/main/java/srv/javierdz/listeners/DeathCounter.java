@@ -1,13 +1,10 @@
 package srv.javierdz.listeners;
 
-import org.bukkit.BanList;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.plugin.java.JavaPlugin;
-import srv.javierdz.utils.MessageUtils;
 
 import java.io.*;
 import java.util.HashMap;
@@ -15,9 +12,8 @@ import java.util.Map;
 
 public class DeathCounter extends JavaPlugin implements Listener {
 
-    private Map<String, Integer> deathCountMap;
+    private static Map<String, Integer> deathCountMap; // Declare as static
     private File dataFile;
-    private int deathThreshold = 3; // Define the death threshold
 
     @Override
     public void onEnable() {
@@ -47,10 +43,10 @@ public class DeathCounter extends JavaPlugin implements Listener {
         int deathCount = deathCountMap.getOrDefault(playerName, 0) + 1;
         deathCountMap.put(playerName, deathCount);
 
-        // Check if the death count exceeds the threshold and ban the player if necessary
-        if (deathCount > deathThreshold) {
-            String reason = MessageUtils.getColoredMessages("&cHas sido &4&lPERMABANEADO!");
-            player.kickPlayer(reason);
+        // Check if the death count exceeds the threshold and take action if necessary
+        if (deathCount > 3) { // Change the threshold value as needed
+            // Example action: kick the player
+            player.kickPlayer("You have been banned for exceeding the death count threshold.");
         }
 
         // You can optionally broadcast the death count to all players
@@ -90,5 +86,10 @@ public class DeathCounter extends JavaPlugin implements Listener {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    // Public static method to get the death count map
+    public static Map<String, Integer> getDeathCountMap() {
+        return deathCountMap;
     }
 }

@@ -24,7 +24,7 @@ public class coords implements CommandExecutor {
         double z = player.getLocation().getZ();
 
         String coords = String.format("%s esta en: X=%.2f, Z=%.2f", player.getName(), x, z);
-        Bukkit.getServer().broadcast(coords);
+        Bukkit.getServer().broadcastMessage(coords);
         return true;
 
     }

@@ -10,6 +10,7 @@ import srv.javierdz.Survival;
 import srv.javierdz.utils.MessageUtils;
 
 import java.net.http.WebSocket;
+import java.util.Map;
 
 public class PlayerListener implements WebSocket.Listener {
 
@@ -33,14 +34,14 @@ public class PlayerListener implements WebSocket.Listener {
 
     }
 
-    private DeathCounter plugin;
+      Map<String, Integer> deathCountMap = DeathCounter.getDeathCountMap();
 
     @EventHandler
     public void onDeath(PlayerDeathEvent event) {
         Player player = event.getEntity().getPlayer();
         assert player != null;
         String title = MessageUtils.getColoredMessages("&c&lHAS MUERTO!");
-        String subtitle = MessageUtils.getColoredMessages("&cTe quedan" + plugin.getDeathCount(player) + "vidas!");
+        String subtitle = MessageUtils.getColoredMessages("&cTe quedan"+deathCountMap+"vidas!");
         int fadeIn = 70;
         int stay = 30;
         int fadeOut = 70;
