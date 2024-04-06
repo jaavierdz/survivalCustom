@@ -4,7 +4,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 import srv.javierdz.commands.about;
+import srv.javierdz.commands.checkdeaths;
 import srv.javierdz.commands.coords;
+import srv.javierdz.commands.help;
 
 public class Survival extends JavaPlugin {
 
@@ -25,6 +27,8 @@ public class Survival extends JavaPlugin {
     public void registerCommands() {
         this.getCommand("about").setExecutor(new about());
         this.getCommand("coords").setExecutor(new coords());
+        this.getCommand("help").setExecutor(new help());
+        this.getCommand("checkdeaths").setExecutor(new checkdeaths());
     }
 
 }

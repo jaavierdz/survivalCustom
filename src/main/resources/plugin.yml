@@ -15,3 +15,7 @@ commands:
       - sendcoords
   help:
     description: There is no help
+  checkdeaths:
+    description: displays your deaths
+    aliases:
+      - checkdeath
