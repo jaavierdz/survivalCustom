@@ -10,11 +10,16 @@ import srv.javierdz.commands.coords;
 import srv.javierdz.commands.help;
 import srv.javierdz.listeners.PlayerListener;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Survival extends JavaPlugin {
 
     public static String prefix = "&8[&1&lSurvivalCustom&r&8]";
 
     private String version = getDescription().getVersion();
+
+
 
     public void onEnable(){
         registerCommands();
